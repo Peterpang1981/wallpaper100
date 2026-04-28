@@ -11,7 +11,7 @@ export function getSupabaseUrl(): string {
 }
 
 export const supabaseUrl = getSupabaseUrl();
-export const supabaseAnonKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJvbGUiOiJhbm9uIiwiaWF0IjoxNzc3MjcwMjE4LCJleHAiOjEzMjg3OTEwMjE4fQ.RKwFMRc9J3NUn4eir3wxFjIV47udec3ik0m2TyL7EO8';
+export const supabaseAnonKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJvbGUiOiJhbm9uIiwiaWF0IjoxNzc3MzU3MjczLCJleHAiOjEzMjg3OTk3MjczfQ.B8A2KFiBikIITfWcsv2IQeG-PvAf1iu0E91P9_0_QzI';
 
 export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
   auth: {

@@ -1,5 +1,5 @@
 {
-  "name": "ai-wallpaper-site",
+  "name": "global-site-storage",
   "version": "1.0.0",
   "scripts": {
     "dev": "webpack serve",
@@ -14,9 +14,7 @@
     "date-fns": "^2.30.0",
     "framer-motion": "^11.16.1",
     "lucide-react": "^0.294.0",
-    "@supabase/supabase-js": "^2.98.0",
-    "base64-arraybuffer": "^1.0.2",
-    "clsx": "^2.0.0"
+    "@supabase/supabase-js": "^2.98.0"
   },
   "devDependencies": {
     "@babel/core": "^7.23.5",

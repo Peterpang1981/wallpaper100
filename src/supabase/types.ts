@@ -9,209 +9,175 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      ad_configs: {
-        Row: {
-          created_at: string | null
-          id: string
-          image_url: string | null
-          is_active: boolean | null
-          link_url: string | null
-          position: string
-          sort_order: number | null
-          title: string | null
-          updated_at: string | null
-        }
-        Insert: {
-          created_at?: string | null
-          id?: string
-          image_url?: string | null
-          is_active?: boolean | null
-          link_url?: string | null
-          position: string
-          sort_order?: number | null
-          title?: string | null
-          updated_at?: string | null
-        }
-        Update: {
-          created_at?: string | null
-          id?: string
-          image_url?: string | null
-          is_active?: boolean | null
-          link_url?: string | null
-          position?: string
-          sort_order?: number | null
-          title?: string | null
-          updated_at?: string | null
-        }
-        Relationships: []
-      }
-      admins: {
-        Row: {
-          created_at: string | null
-          id: string
-          password_hash: string
-          username: string
-        }
-        Insert: {
-          created_at?: string | null
-          id?: string
-          password_hash: string
-          username: string
-        }
-        Update: {
-          created_at?: string | null
-          id?: string
-          password_hash?: string
-          username?: string
-        }
-        Relationships: []
-      }
       categories: {
         Row: {
           created_at: string | null
+          icon: string | null
           id: string
           name: string
           sort_order: number | null
-          type: string
+          type: string | null
         }
         Insert: {
           created_at?: string | null
+          icon?: string | null
           id?: string
           name: string
           sort_order?: number | null
-          type: string
+          type?: string | null
         }
         Update: {
           created_at?: string | null
+          icon?: string | null
           id?: string
           name?: string
           sort_order?: number | null
-          type?: string
+          type?: string | null
         }
         Relationships: []
       }
-      downloads: {
+      download_history: {
         Row: {
           downloaded_at: string | null
           id: string
-          user_session_id: string | null
+          ip_hash: string | null
           wallpaper_id: string | null
         }
         Insert: {
           downloaded_at?: string | null
           id?: string
-          user_session_id?: string | null
+          ip_hash?: string | null
           wallpaper_id?: string | null
         }
         Update: {
           downloaded_at?: string | null
           id?: string
-          user_session_id?: string | null
+          ip_hash?: string | null
           wallpaper_id?: string | null
         }
         Relationships: [
           {
-            foreignKeyName: "downloads_wallpaper_id_fkey"
+            foreignKeyName: "download_history_wallpaper_id_fkey"
             columns: ["wallpaper_id"]
             referencedRelation: "wallpapers"
             referencedColumns: ["id"]
           },
         ]
       }
-      favorites: {
+      musics: {
         Row: {
+          album: string | null
+          artist: string
+          audio_url: string
+          cover_url: string | null
           created_at: string | null
+          duration: number | null
+          genre: string | null
           id: string
-          user_session_id: string | null
-          wallpaper_id: string | null
+          play_count: number | null
+          title: string
+          updated_at: string | null
         }
         Insert: {
+          album?: string | null
+          artist: string
+          audio_url: string
+          cover_url?: string | null
           created_at?: string | null
+          duration?: number | null
+          genre?: string | null
           id?: string
-          user_session_id?: string | null
-          wallpaper_id?: string | null
+          play_count?: number | null
+          title: string
+          updated_at?: string | null
         }
         Update: {
+          album?: string | null
+          artist?: string
+          audio_url?: string
+          cover_url?: string | null
           created_at?: string | null
+          duration?: number | null
+          genre?: string | null
           id?: string
-          user_session_id?: string | null
-          wallpaper_id?: string | null
+          play_count?: number | null
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      play_history: {
+        Row: {
+          id: string
+          ip_hash: string | null
+          music_id: string | null
+          played_at: string | null
+        }
+        Insert: {
+          id?: string
+          ip_hash?: string | null
+          music_id?: string | null
+          played_at?: string | null
+        }
+        Update: {
+          id?: string
+          ip_hash?: string | null
+          music_id?: string | null
+          played_at?: string | null
         }
         Relationships: [
           {
-            foreignKeyName: "favorites_wallpaper_id_fkey"
-            columns: ["wallpaper_id"]
-            referencedRelation: "wallpapers"
+            foreignKeyName: "play_history_music_id_fkey"
+            columns: ["music_id"]
+            referencedRelation: "musics"
             referencedColumns: ["id"]
           },
         ]
       }
       wallpapers: {
         Row: {
-          category_id: string | null
+          category: string | null
           created_at: string | null
           description: string | null
           download_count: number | null
           file_size: number | null
-          format: string | null
           id: string
-          is_featured: boolean | null
-          is_published: boolean | null
-          is_recommended: boolean | null
+          image_url: string
           resolution: string | null
-          storage_path: string | null
           tags: string[] | null
-          thumbnail_path: string | null
+          thumbnail_url: string | null
           title: string
           updated_at: string | null
-          view_count: number | null
         }
         Insert: {
-          category_id?: string | null
+          category?: string | null
           created_at?: string | null
           description?: string | null
           download_count?: number | null
           file_size?: number | null
-          format?: string | null
           id?: string
-          is_featured?: boolean | null
-          is_published?: boolean | null
-          is_recommended?: boolean | null
+          image_url: string
           resolution?: string | null
-          storage_path?: string | null
           tags?: string[] | null
-          thumbnail_path?: string | null
+          thumbnail_url?: string | null
           title: string
           updated_at?: string | null
-          view_count?: number | null
         }
         Update: {
-          category_id?: string | null
+          category?: string | null
           created_at?: string | null
           description?: string | null
           download_count?: number | null
           file_size?: number | null
-          format?: string | null
           id?: string
-          is_featured?: boolean | null
-          is_published?: boolean | null
-          is_recommended?: boolean | null
+          image_url?: string
           resolution?: string | null
-          storage_path?: string | null
           tags?: string[] | null
-          thumbnail_path?: string | null
+          thumbnail_url?: string | null
           title?: string
           updated_at?: string | null
-          view_count?: number | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "wallpapers_category_id_fkey"
-            columns: ["category_id"]
-            referencedRelation: "categories"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
     }
     Views: {
